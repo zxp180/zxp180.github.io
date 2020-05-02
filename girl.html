@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>轮播图</title>
     <style>
       .music-carousal {
@@ -161,79 +161,4 @@
           });
         },
 
-        _renderPagination: function(_currentIndex) {
-          let paginationList = document.querySelectorAll(".pagination-item");
-          paginationList.forEach((item, index) => {
-            if (index === _currentIndex) {
-              item.classList.add("active");
-            } else {
-              item.classList.remove("active");
-            }
-          });
-        },
-
-        // 监听小圆点按钮点击
-        listenPaginationTouch: function() {
-          let paginationBox = document.querySelector(".pagination-box");
-          paginationBox.addEventListener("click", event => {
-            const target = event.target;
-            if (target.classList.contains("pagination-item")) {
-              try {
-                let className = target.classList[1];
-                let index = Number(className.split("-")[1]);
-                this._changeNextOrder(index);
-                this._renderPagination(index);
-                currentIndex = index;
-                clearInterval(timer);
-                timer = setInterval(this._next.bind(this), 5000);
-              } catch (error) {
-                throw new Error(error);
-              }
-            }
-          });
-        }
-      };
-
-      const carousalDom = document.querySelector(".music-carousal");
-      const banners = [
-        {
-          imageUrl:
-            "http://raw.githubusercontent.com/zxp180/react-antd-demo/master/src/assets/images/a.jpg"
-        },
-        {
-          imageUrl:
-            "http://raw.githubusercontent.com/zxp180/react-antd-demo/master/src/assets/images/b.jpg"
-        },
-        {
-          imageUrl:
-            "http://raw.githubusercontent.com/zxp180/react-antd-demo/master/src/assets/images/c.jpg"
-        },
-        {
-          imageUrl:
-            "http://raw.githubusercontent.com/zxp180/react-antd-demo/master/src/assets/images/d.jpg"
-        },
-        {
-          imageUrl:
-            "http://raw.githubusercontent.com/zxp180/react-antd-demo/master/src/assets/images/e.jpg"
-        },
-        {
-          imageUrl:
-            "http://raw.githubusercontent.com/zxp180/react-antd-demo/master/src/assets/images/f.jpg"
-        },
-		{
-          imageUrl:
-            "http://raw.githubusercontent.com/zxp180/react-antd-demo/master/src/assets/images/g.jpg"
-        },
-		{
-          imageUrl:
-            "http://raw.githubusercontent.com/zxp180/react-antd-demo/master/src/assets/images/h.jpg"
-        }
-      ];
-      carousal.init({
-        el: carousalDom,
-        banners,
-        interval: 6000
-      });
-    </script>
-  </body>
-</html>
+        _renderPagination
